@@ -23,12 +23,12 @@ pod "GRRouter"
 ```
 'pod  GRRouter'
 ```
-#前言
+# 前言
 界面间的跳转，如果某个对象不能拿到导航控制器，需通过代理，block等方式 委托某个控制器去push或present，比较麻烦。因此，我们写了一个简单的Router去简化这些操作。
-#用法
+# 用法
 
 
-#####push
+##### push
 
 ```
  [GRRouter open:@"push->GRMenuViewController" params:@{@"shop": _cellDataArray[indexPath.row]}];
@@ -42,7 +42,7 @@ pod "GRRouter"
  [GRRouter open:@"push->GRTestViewControllerBeta" params:@{@"color": [UIColor blueColor], @"text": @"push1"}];
 ```
 
-#####present
+##### present
 ```
  [GRRouter open:@"present->GRLoginViewController" params:nil completed:^{[MBProgressHUD gr_showFailure:@"请先登录"];}];
 ```
@@ -52,7 +52,7 @@ pod "GRRouter"
 ```
  [GRRouter open:@"present->GRTestViewControllerBeta?NO" params:@{@"color": [UIColor redColor], @"text": @"present2"}];
 ```
-####在此之前，我们需要设置GRRouter的hostViewController
+#### 在此之前，我们需要设置GRRouter的hostViewController
 ######简而言之，当需要push，present其他控制器的时候，我们需要总能找到合适的发起者。
 在某些情况下，您可以直接指定GRRouter的主控制器，比如主window的rootViewController为UINavigationController类型：
 ```
@@ -81,8 +81,8 @@ pod "GRRouter"
     return _hostViewController;
 }
 ```
-#代码实现
-###GRRouter.h
+# 代码实现
+### GRRouter.h
 ```
 #import <UIKit/UIKit.h>
 
@@ -102,7 +102,7 @@ typedef UIViewController * (^GRHostBlock)(void);
 
 @end
 ```
-###GRRouter.m
+### GRRouter.m
 ```
 #import "GRRouter.h"
 #import <objc/runtime.h>
@@ -238,7 +238,7 @@ typedef UIViewController * (^GRHostBlock)(void);
 @end
 
 ```
-###原理
+### 原理
  ```
 + (void)open:(NSString *)url params:(NSDictionary *)params {
     [self open:url params:params completed:nil];
@@ -256,8 +256,8 @@ typedef UIViewController * (^GRHostBlock)(void);
 }
 ```
 
-#谢谢观看
-#####水平有限，若有错误，请多指正
+# 谢谢观看
+##### 水平有限，若有错误，请多指正
 [git地址：https://github.com/Assuner-Lee/GRRouter.git](https://github.com/Assuner-Lee/GRRouter.git)
 ## Author
 
