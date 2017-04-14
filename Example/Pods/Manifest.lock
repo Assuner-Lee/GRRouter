@@ -1,0 +1,16 @@
+PODS:
+  - GRRouter (0.1.0)
+
+DEPENDENCIES:
+  - GRRouter (from `../`)
+
+EXTERNAL SOURCES:
+  GRRouter:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  GRRouter: 60d8ce7531fd45b22732342e6567ad08a2262eba
+
+PODFILE CHECKSUM: 3865a14286b23ac00d8fd0cd564b761f07895ba2
+
+COCOAPODS: 1.1.1
