@@ -7,14 +7,15 @@
 //
 
 #import "GRAppDelegate.h"
+#import "GRRouter.h"
 
 @implementation GRAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Override point for customization after application launch.
-    return YES;
-}
+{   [GRRouter getDynamicHostViewController:^UIViewController *{
+    return ((UITabBarController *)self.window.rootViewController).selectedViewController;
+}];
+    return YES;}
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

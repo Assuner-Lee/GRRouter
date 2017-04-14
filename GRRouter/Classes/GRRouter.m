@@ -7,18 +7,17 @@
 //
 
 #import "GRRouter.h"
-#import "GRNavigationController.h"
 #import <objc/runtime.h>
 
 @interface GRRouter ()
 
-@property (nonatomic, strong) GRNavigationController *hostViewController;
+@property (nonatomic, copy) GRHostBlock hostBlock;
 
 @end
 
 @implementation GRRouter
 
-+ (instancetype)sharedRouter {
++ (GRRouter *)sharedRouter {
     static GRRouter *router = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -27,23 +26,52 @@
     return router;
 }
 
-+ (GRNavigationController *)hostViewController {
++ (UIViewController *)hostViewController {
     return [[self sharedRouter] hostViewController];
 }
 
-- (GRNavigationController *)hostViewController {
-    return (GRNavigationController *)(ROOT_VC.selectedViewController);
+- (UIViewController *)hostViewController {
+    if (self.hostBlock) {
+        _hostViewController = self.hostBlock();
+    }
+    return _hostViewController;
+}
+
+//** 此方法可动态指定主控制器，若为静态，请直接设置hostViewController
++ (void)getDynamicHostViewController:(GRHostBlock)block {
+    [self sharedRouter].hostBlock = block;
 }
 
 + (void)pushViewController:(UIViewController *)aVC animated:(BOOL)animated {
-    [[[self sharedRouter] hostViewController] pushViewController:aVC animated:animated];
+    UIViewController *hostVC = [self sharedRouter].hostViewController;
+    if (hostVC) {
+        if ([hostVC isKindOfClass:[UINavigationController class]]) {
+            [(UINavigationController *)hostVC pushViewController:aVC animated:animated];
+        } else {
+            [NSException raise:@"GRRouterHostVCError" format:@"hostViewController of Router is not a UINavigationController"];
+        }
+    } else {
+        [NSException raise:@"GRRouterHostVCError" format:@"hostViewController of Router is nil"];
+    }
 }
 
-+ (void)presentViewController:(UIViewController *)aVC animation:(GRTransitionType)type completion:(void (^)(void))completion {
-    [(GRViewController *)([[self sharedRouter] hostViewController].topViewController) presentViewController:aVC animation:type completion:completion];
++ (void)presentViewController:(UIViewController *)aVC animated:(BOOL)animated completion:(GRBlankBlock)completion {
+    UIViewController *hostVC = [self sharedRouter].hostViewController;
+    if (hostVC) {
+        if ([hostVC isKindOfClass:[UIViewController class]]) {
+            [hostVC presentViewController:aVC animated:animated completion:completion];
+        } else {
+            [NSException raise:@"GRRouterHostVCError" format:@"hostViewController of Router is not a UIViewController but (%@)", NSStringFromClass([hostVC class])];
+        }
+    } else {
+        [NSException raise:@"GRRouterHostVCError" format:@"hostViewController of Router is nil"];
+    }
 }
+
+
 
 //@"push->GRMenuViewController?NO"
+//@"push->GRMenuViewController"
 //@"present->GRLoginViewController?NO"
 + (void)open:(NSString *)url params:(NSDictionary *)params completed:(GRBlankBlock)block {
     if (url.length) {
@@ -83,6 +111,7 @@
                       }
                         if (!isMatched) {
                              [NSException raise:@"GRRouterParamsError" format:@"param:key named (%@) doesn't exist in class (%@)", key, className];
+                            return;
                         }
                   }
               }
@@ -90,7 +119,7 @@
                 if ([openType isEqualToString:@"push"]) {
                     [self pushViewController:vc animated:([animatedType isEqualToString:@"YES"] || [animatedType isEqualToString:@"NO"]) ? animatedType.boolValue : YES];
                 } else if ([openType isEqualToString:@"present"]) {
-                    [self presentViewController:vc animation:[animatedType isEqualToString:@"NO"] ? GRTransitionTypeNone : GRTransitionTypeRippleEffect completion:block];
+                    [self presentViewController:vc animated:[animatedType isEqualToString:@"NO"] ? NO : YES  completion:block];
                 } else {
                     [NSException raise:@"GRRouterOpenTypeError" format:@"openType:(%@) doesn't exist", openType];
                 }

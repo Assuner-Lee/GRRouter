@@ -7,13 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GRViewController.h"
+
+typedef void (^GRBlankBlock)(void);
+typedef UIViewController * (^GRHostBlock)(void);
 
 @interface GRRouter : NSObject
 
-+ (GRNavigationController *)hostViewController;
+@property (nonatomic, strong) UIViewController *hostViewController;
+
++ (GRRouter *)sharedRouter;
++ (void)getDynamicHostViewController:(GRHostBlock)block;
 + (void)pushViewController:(UIViewController *)aVC animated:(BOOL)animated;
-+ (void)presentViewController:(UIViewController *)aVC animation:(GRTransitionType)type completion:(void (^)(void))completion;
++ (void)presentViewController:(UIViewController *)aVC animated:(BOOL)animated completion:(GRBlankBlock)completion;
 + (void)open:(NSString *)url params:(NSDictionary *)params completed:(GRBlankBlock)block;
 + (void)open:(NSString *)url params:(NSDictionary *)params;
 

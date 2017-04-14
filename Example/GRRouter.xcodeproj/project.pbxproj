@@ -13,7 +13,6 @@
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* GRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* GRAppDelegate.m */; };
-		6003F5A7195388D20070C39A /* GRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* GRViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -23,6 +22,9 @@
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		94145C5D2C07A2278E2B5D24 /* Pods_GRRouter_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E08F30E4CB57A3F2902B9DE2 /* Pods_GRRouter_Example.framework */; };
+		9C3AE61A1EA0ADF000243BF8 /* GRTestViewControllerAlpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3AE6191EA0ADF000243BF8 /* GRTestViewControllerAlpha.m */; };
+		9C3AE6261EA0B24E00243BF8 /* GRTestViewControllerBeta.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3AE6241EA0B24E00243BF8 /* GRTestViewControllerBeta.m */; };
+		9C3AE6271EA0B24E00243BF8 /* GRTestViewControllerBeta.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C3AE6251EA0B24E00243BF8 /* GRTestViewControllerBeta.xib */; };
 		F07B764232097FAA7ED86816 /* Pods_GRRouter_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A85838CBAECFC161902C8385 /* Pods_GRRouter_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,8 +54,6 @@
 		6003F59B195388D20070C39A /* GRRouter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GRRouter-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* GRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GRAppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* GRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GRAppDelegate.m; sourceTree = "<group>"; };
-		6003F5A5195388D20070C39A /* GRViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GRViewController.h; sourceTree = "<group>"; };
-		6003F5A6195388D20070C39A /* GRViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GRViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* GRRouter_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GRRouter_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -65,6 +65,11 @@
 		84E100A191B27FA0D851140A /* GRRouter.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = GRRouter.podspec; path = ../GRRouter.podspec; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		939C2041331ED59329EBBF8D /* Pods-GRRouter_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GRRouter_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GRRouter_Example/Pods-GRRouter_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		9C3AE6181EA0ADF000243BF8 /* GRTestViewControllerAlpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTestViewControllerAlpha.h; sourceTree = "<group>"; };
+		9C3AE6191EA0ADF000243BF8 /* GRTestViewControllerAlpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTestViewControllerAlpha.m; sourceTree = "<group>"; };
+		9C3AE6231EA0B24E00243BF8 /* GRTestViewControllerBeta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTestViewControllerBeta.h; sourceTree = "<group>"; };
+		9C3AE6241EA0B24E00243BF8 /* GRTestViewControllerBeta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTestViewControllerBeta.m; sourceTree = "<group>"; };
+		9C3AE6251EA0B24E00243BF8 /* GRTestViewControllerBeta.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GRTestViewControllerBeta.xib; sourceTree = "<group>"; };
 		A85838CBAECFC161902C8385 /* Pods_GRRouter_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GRRouter_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E08F30E4CB57A3F2902B9DE2 /* Pods_GRRouter_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GRRouter_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -134,9 +139,12 @@
 			children = (
 				6003F59C195388D20070C39A /* GRAppDelegate.h */,
 				6003F59D195388D20070C39A /* GRAppDelegate.m */,
+				9C3AE6181EA0ADF000243BF8 /* GRTestViewControllerAlpha.h */,
+				9C3AE6191EA0ADF000243BF8 /* GRTestViewControllerAlpha.m */,
+				9C3AE6231EA0B24E00243BF8 /* GRTestViewControllerBeta.h */,
+				9C3AE6241EA0B24E00243BF8 /* GRTestViewControllerBeta.m */,
+				9C3AE6251EA0B24E00243BF8 /* GRTestViewControllerBeta.xib */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				6003F5A5195388D20070C39A /* GRViewController.h */,
-				6003F5A6195388D20070C39A /* GRViewController.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -282,6 +290,7 @@
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				9C3AE6271EA0B24E00243BF8 /* GRTestViewControllerBeta.xib in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -395,7 +404,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* GRAppDelegate.m in Sources */,
-				6003F5A7195388D20070C39A /* GRViewController.m in Sources */,
+				9C3AE6261EA0B24E00243BF8 /* GRTestViewControllerBeta.m in Sources */,
+				9C3AE61A1EA0ADF000243BF8 /* GRTestViewControllerAlpha.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
