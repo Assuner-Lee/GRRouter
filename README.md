@@ -20,9 +20,7 @@ it, simply add the following line to your Podfile:
 pod "GRRouter"
 ```
 [git地址：https://github.com/Assuner-Lee/GRRouter.git](https://github.com/Assuner-Lee/GRRouter.git)
-```
-'pod  GRRouter'
-```
+
 # 前言
 界面间的跳转，如果某个对象不能拿到导航控制器，需通过代理，block等方式 委托某个控制器去push或present，比较麻烦。因此，我们写了一个简单的Router去简化这些操作。
 # 用法
